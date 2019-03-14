@@ -7,10 +7,20 @@
   <title>Wiki App</title>
   <meta name="description" content="Wiki App">
   <link rel="stylesheet" href="src/css/stylesheet-wiki-app.css">
-  <script src="" defer></script>
-
+  <script src="" type="module"></script>
 </head>
+
 <body>
+  <header>Wiki App</header>
+
+  <div class="main">
+    <form class="form js-form">
+      <!-- value of label's for attribute must be the same as of input's id -->
+      <label for="keyword">Search articles by keywords:</label>
+      <input type="text" name="q" id="keyword" class="keyword js-keyword" maxlength="100" required>
+      <button class="submit-button">Search</button>
+    </form>
+  </div>
   
 </body>
 </html>
