@@ -5,23 +5,31 @@ const searchResults = document.querySelector('.search-results');
 
 /* render search results */
 function renderSearchResults(searchData) {
-  const resultArray = searchData.query.search;
-  if (resultArray.length) {
-    resultArray.forEach(element => {
+  const resultPages = searchData.query.pages;
+
+  /* Object.keys() returns an array of object's keys */
+  if (Object.keys(resultPages).length) {
+
+    /* searchData.query.pages turned out to be a non-iterable object, 
+    therefore it was not possible to use for...of to iterate its properties. 
+    Instead it was possible to use Object.keys() or Object.entries() 
+    to iterate over searchDate.query.pages properties. */
+    for (const [page, value] of Object.entries(resultPages)) {
       const searchResultsItem = document.createElement('div');
       searchResultsItem.setAttribute('class', 'search-results__item');
 
-      const title = document.createElement('p');
-      title.textContent = element.title;
+      const title = document.createElement('a');
+      title.setAttribute('href', value.canonicalurl);
+      title.textContent = value.title;
 
       const snippet = document.createElement('p');
       snippet.setAttribute('class', 'snippet');
-      snippet.innerHTML = `${element.snippet}...`;
+      snippet.innerHTML = `snippet...`;
 
       searchResultsItem.appendChild(title);
       searchResultsItem.appendChild(snippet);
       searchResults.appendChild(searchResultsItem);
-    })
+    }
   } else {
     searchResults.textContent = 'No results found.';
   }
