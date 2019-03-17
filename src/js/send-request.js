@@ -24,7 +24,7 @@ function composeUrl() {
 function makeRequest(url) {
   fetch(url)
     .then(response => response.json())
-    /* .json() method returns a promise, therefor it's neede to chain one more .then() method */
+    /* .json() method returns a promise, therefore it's neede to chain one more .then() method */
     .then((searchData) => {
       renderSearchResults(searchData);
       console.log(searchData);
