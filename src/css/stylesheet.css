@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Arial, Helvetica, sans-serif;;
+}
+
+/* box-sizing property is not inherited */
+* {
+  box-sizing: border-box; 
+}
+
+header {
+  border-bottom: 1px solid gray;
+  padding: 14px;
+}
+
+.main {
+  max-width: 1024px;
+  margin: auto;
+  padding: 14px;
+}
+
+@media only screen and (min-width: 700px) {
+  header {
+    font-size: 120%;
+  }
+}
