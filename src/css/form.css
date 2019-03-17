@@ -1,0 +1,9 @@
+form {
+  padding-bottom: 30px;
+}
+
+@media (min-width: 1024px) {
+  form {
+    padding: 15px 0 30px;
+  }
+}
