@@ -3,7 +3,6 @@ import { renderSearchResults } from './render-results.js';
 //cache DOM
 const form = document.querySelector('.js-form');
 const input = document.querySelector('.js-input-keyword');
-let searchData;
 
 //bind events
 form.addEventListener('submit', makeSearch);
@@ -13,7 +12,6 @@ function makeSearch(event) {
   event.preventDefault();
   const url = composeUrl();
   makeRequest(url);
-  renderSearchResults();
 }
 
 function composeUrl() {
@@ -26,14 +24,15 @@ function composeUrl() {
 function makeRequest(url) {
   fetch(url)
     .then(response => response.json())
-    .then((data) => {
-      searchData = data;
-  });
+    /* .json() method returns a promise, therefor it's neede to chain one more .then() method */
+    .then((searchData) => {
+      renderSearchResults(searchData);
+      console.log(searchData);
+    })
+    .catch(error => console.log(error));
 /*   fetch('https://en.wikipedia.org/w/api.php?action=query&pageids=33454&prop=info&inprop=url&format=json&origin=*')
     .then(response => response.json())
     .then((pageurl) => {
   console.log(pageurl);
   }); */
 }
-
-export { searchData };
