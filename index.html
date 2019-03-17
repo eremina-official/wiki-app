@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Wiki App</title>
   <meta name="description" content="Wiki App">
-  <link rel="stylesheet" href="src/css/stylesheet-wiki-app.css">
-  <script src="" type="module"></script>
+  <link rel="stylesheet" href="src/css/stylesheet.css">
+  <script src="src/js/send-request.js" type="module"></script>
 </head>
 
 <body>
@@ -17,9 +17,13 @@
     <form class="form js-form">
       <!-- value of label's for attribute must be the same as of input's id -->
       <label for="keyword">Search articles by keywords:</label>
-      <input type="text" name="q" id="keyword" class="keyword js-keyword" maxlength="100" required>
+      <input type="text" name="q" id="keyword" class="input-keyword js-input-keyword" maxlength="100" required>
       <button class="submit-button">Search</button>
     </form>
+
+    <div class="search-results">
+      <p class="snippet"></p>
+    </div>
   </div>
   
 </body>
