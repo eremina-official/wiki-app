@@ -26,6 +26,10 @@ function renderSearchResults(searchData) {
       extract.setAttribute('class', 'extract');
       extract.innerHTML = value.extract;
 
+      const languageButton = document.createElement('div');
+      languageButton.setAttribute('class', 'button-language js-button-language');
+      languageButton.textContent = 'Show languages';
+
       searchResultsItem.appendChild(title);
       searchResultsItem.appendChild(extract);
       searchResults.appendChild(searchResultsItem);
