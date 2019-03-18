@@ -14,17 +14,17 @@ function renderSearchResults(searchData) {
     therefore it was not possible to use for...of to iterate its properties. 
     Instead it was possible to use Object.keys() or Object.entries() 
     to iterate over searchDate.query.pages properties. */
-    for (const [page, value] of Object.entries(resultPages)) {
+    for (const [pageId, value] of Object.entries(resultPages)) {
       const searchResultsItem = document.createElement('div');
       searchResultsItem.setAttribute('class', 'search-results__item');
 
       const title = document.createElement('a');
-      title.setAttribute('href', value.canonicalurl);
+      title.setAttribute('href', value.fullurl);
       title.textContent = value.title;
 
       const snippet = document.createElement('p');
       snippet.setAttribute('class', 'snippet');
-      snippet.innerHTML = `snippet...`;
+      snippet.innerHTML = value.extract;
 
       searchResultsItem.appendChild(title);
       searchResultsItem.appendChild(snippet);
