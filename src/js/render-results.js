@@ -22,12 +22,12 @@ function renderSearchResults(searchData) {
       title.setAttribute('href', value.fullurl);
       title.textContent = value.title;
 
-      const snippet = document.createElement('p');
-      snippet.setAttribute('class', 'snippet');
-      snippet.innerHTML = value.extract;
+      const extract = document.createElement('p');
+      extract.setAttribute('class', 'extract');
+      extract.innerHTML = value.extract;
 
       searchResultsItem.appendChild(title);
-      searchResultsItem.appendChild(snippet);
+      searchResultsItem.appendChild(extract);
       searchResults.appendChild(searchResultsItem);
     }
   } else {
