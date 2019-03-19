@@ -4,11 +4,21 @@ import { currentSearchData } from './send-request.js';
 document.addEventListener('click', showLanguages);
 
 //function declarations
+/* handle click for Show/Hide languages button */
 function showLanguages(event) {
   if (!event.target.classList.contains('js-button-language')) {
     return;
   }
 
+  if (event.target.nextElementSibling) {
+    event.target.nextElementSibling.classList.toggle('is-not-active');
+  } else {
+    renderLanguages(event);
+  }
+}
+
+/* render languages when the Show/Hide languages button is clicked for the first time */
+function renderLanguages(event) {
   const page = event.target.parentElement;
   const pageId = page.getAttribute('id');
   const langlinks = currentSearchData.query.pages[pageId]['langlinks'];
@@ -36,5 +46,4 @@ function showLanguages(event) {
   });
 
   page.appendChild(langContainer);
-
 }
