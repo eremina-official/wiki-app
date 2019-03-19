@@ -1,0 +1,25 @@
+.lang-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.lang-container__item {
+  font-size: 80%;
+  padding: 6px;
+
+}
+
+.is-not-active {
+  display: none;
+}
+
+@media (min-width: 400px) {
+  .lang-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .lang-container__item {
+    padding: 14px;
+  }
+}
