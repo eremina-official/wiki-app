@@ -1,3 +1,5 @@
+/* this module handles rendering of wiki articles returned by search with keywords */
+
 //cache DOM
 const searchResults = document.querySelector('.search-results');
 
@@ -28,7 +30,7 @@ function renderSearchResults(searchData) {
 
       const languageButton = document.createElement('div');
       languageButton.setAttribute('class', 'button-language js-button-language');
-      languageButton.textContent = 'Show languages';
+      languageButton.textContent = 'Show/Hide languages';
 
       searchResultsItem.appendChild(title);
       searchResultsItem.appendChild(extract);
