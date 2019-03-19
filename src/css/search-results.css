@@ -1,5 +1,5 @@
 .search-results__item {
-  padding-bottom: 14px;
+  padding-bottom: 20px;
 }
 
 .search-results__item p {
@@ -7,6 +7,26 @@
   padding: 0 0 0.6em;
 }
 
-.snippet {
+.search-results__item a {
+  text-decoration: none;
+  display: block;
+  padding: 0 0 0.6em;
+}
+
+.search-results__item a:hover {
+  text-decoration: underline;
+}
+
+.extract {
   font-size: 90%;
+}
+
+.button-language {
+  font-size: 80%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.button-language:hover {
+  text-decoration: underline;
 }
