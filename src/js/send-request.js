@@ -11,6 +11,7 @@ const params = {
   inprop: 'inprop=url',
   exprop: 'exintro=&explaintext=&exsentences=1',
   llprop: 'llprop=url|autonym',
+  lllimit: 'lllimit=300',
   format: 'format=json',
   /* origin parameter must be set to wildcard to allow for unauthenticated CORS requests */
   origin: 'origin=*'
@@ -31,7 +32,7 @@ function makeSearch(event) {
 /* compose url to query API using the search keywords */
 function composeUrl() {
   const keywords = input.value;  
-  const url = `${apiUrl}?${params.action}&${params.generator}&gsrsearch=${keywords}&${params.prop}&${params.inprop}&${params.exprop}&${params.llprop}&${params.format}&${params.origin}`;
+  const url = `${apiUrl}?${params.action}&${params.generator}&gsrsearch=${keywords}&${params.prop}&${params.inprop}&${params.exprop}&${params.llprop}&${params.lllimit}&${params.format}&${params.origin}`;
   return url;
 }
 
