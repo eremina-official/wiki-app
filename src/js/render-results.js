@@ -2,21 +2,21 @@
 const searchResults = document.querySelector('.search-results');
 
 //function declarations
-
 /* render search results */
 function renderSearchResults(searchData) {
   const resultPages = searchData.query.pages;
 
-  /* Object.keys() returns an array of object's keys */
+  /* Object.keys() returns an array of object's keys, it is used here to check if any pages are returned by the API */
   if (Object.keys(resultPages).length) {
 
     /* searchData.query.pages turned out to be a non-iterable object, 
-    therefore it was not possible to use for...of to iterate its properties. 
+    therefore it was not possible to use for...of to iterate over its properties. 
     Instead it was possible to use Object.keys() or Object.entries() 
-    to iterate over searchDate.query.pages properties. */
+    to iterate over searchData.query.pages properties. */
     for (const [pageId, value] of Object.entries(resultPages)) {
       const searchResultsItem = document.createElement('div');
       searchResultsItem.setAttribute('class', 'search-results__item');
+      searchResultsItem.setAttribute('id', pageId);
 
       const title = document.createElement('a');
       title.setAttribute('href', value.fullurl);
@@ -32,6 +32,7 @@ function renderSearchResults(searchData) {
 
       searchResultsItem.appendChild(title);
       searchResultsItem.appendChild(extract);
+      searchResultsItem.appendChild(languageButton);
       searchResults.appendChild(searchResultsItem);
     }
   } else {
