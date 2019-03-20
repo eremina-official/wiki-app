@@ -1,4 +1,4 @@
-/* this module handles rendering of wiki articles returned by search with keywords */
+/* this module handles rendering of wiki articles returned by API query with keywords */
 
 //cache DOM
 const searchResults = document.querySelector('.search-results');
