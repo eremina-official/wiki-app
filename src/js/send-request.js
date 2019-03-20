@@ -25,8 +25,8 @@ const params = {
 form.addEventListener('submit', makeSearch);
 
 //function declarations
+/* prevent default form submission and add custom form handling */
 function makeSearch(event) {
-  /* prevent default form submission and add custom form handling */
   event.preventDefault();
   const url = composeUrl();
   makeRequest(url, renderSearchResults);
