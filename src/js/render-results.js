@@ -1,18 +1,28 @@
 /* this module handles rendering of wiki articles returned by API query with keywords */
 
-//cache DOM
+//cache DOM, declare variables
+const searchResultsContainer = document.querySelector('.search-results-container');
 const searchResults = document.querySelector('.search-results');
-const renderMoreSearchResultsButton = document.querySelector('.js-more-results-button');
-let resultPagesArray = [];
-let sliceBegin = 0;
-let sliceEnd = 10;
+let resultPagesArray;
+let sliceBegin;
+let sliceEnd;
 
 //bind events
-renderMoreSearchResultsButton.addEventListener('click', renderMoreSearchResults);
+document.addEventListener('click', renderMoreSearchResults);
 
 //function declarations
 /* render search results right after receiving data from the API */
 function renderSearchResults(searchData) {
+    /* reset the variables and clear the page */
+    sliceBegin = 0;
+    sliceEnd = 10;
+    resultPagesArray = [];
+    searchResults.innerHTML = '';
+    const showMoreResultsButton = document.querySelector('.js-more-results-button');
+    if (showMoreResultsButton) {
+      showMoreResultsButton.remove();
+    }
+
   /* Object.keys() returns an array of object's keys, 
   it is used here to check if any pages are returned by the API */
   if (Object.keys(searchData.query.pages)) {
@@ -22,12 +32,9 @@ function renderSearchResults(searchData) {
     to iterate over searchData.query.pages properties. 
     searchData.query.pages are saved to an array to be able to conveniently slice it 
     and iterate over it. */
-    sliceBegin = 0;
-    sliceEnd = 10;
     for (const [pageId, value] of Object.entries(searchData.query.pages)) {
       resultPagesArray.push([pageId, value]);
     }
-
     const resultPagesArraySlice = resultPagesArray.slice(sliceBegin, sliceEnd);
     renderSearchResultsToDom(resultPagesArraySlice);
   } else {
@@ -44,7 +51,6 @@ function renderMoreSearchResults(event) {
   sliceBegin += 10;
   sliceEnd += 10;
   const resultPagesArraySlice = resultPagesArray.slice(sliceBegin, sliceEnd);
-  
   if (resultPagesArraySlice.length) {
     renderSearchResultsToDom(resultPagesArraySlice);
   } else {
