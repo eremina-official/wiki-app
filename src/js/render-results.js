@@ -22,6 +22,8 @@ function renderSearchResults(searchData) {
     to iterate over searchData.query.pages properties. 
     searchData.query.pages are saved to an array to be able to conveniently slice it 
     and iterate over it. */
+    sliceBegin = 0;
+    sliceEnd = 10;
     for (const [pageId, value] of Object.entries(searchData.query.pages)) {
       resultPagesArray.push([pageId, value]);
     }
