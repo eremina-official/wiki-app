@@ -8,10 +8,10 @@ let sliceBegin = 0;
 let sliceEnd = 10;
 
 //bind events
-//renderMoreSearchResultsButton.addEventListener('click', renderMoreSearchResults);
+renderMoreSearchResultsButton.addEventListener('click', renderMoreSearchResults);
 
 //function declarations
-/* render search results */
+/* render search results right after receiving data from the API */
 function renderSearchResults(searchData) {
   /* Object.keys() returns an array of object's keys, 
   it is used here to check if any pages are returned by the API */
@@ -33,31 +33,42 @@ function renderSearchResults(searchData) {
   }
 }
 
-function renderSearchResultsToDom(resultPagesArraySlice) {
+/* render a next slice of search results to DOM after More button click */
+function renderMoreSearchResults() {
+  sliceBegin += 10;
+  sliceEnd += 10;
+  const resultPagesArraySlice = resultPagesArray.slice(sliceBegin, sliceEnd);
   if (resultPagesArraySlice.length) {
-    for (const value of resultPagesArraySlice) {
-      const searchResultsItem = document.createElement('div');
-      searchResultsItem.setAttribute('class', 'search-results__item');
-      searchResultsItem.setAttribute('id', value[0]);
+    renderSearchResultsToDom(resultPagesArraySlice);
+  } else {
+    //handle no more results option
+  }
+}
 
-      const title = document.createElement('a');
-      title.setAttribute('href', value[1].fullurl);
-      title.textContent = value[1].title;
+/* render a slice of search results to DOM */
+function renderSearchResultsToDom(resultPagesArraySlice) {
+  for (const value of resultPagesArraySlice) {
+    const searchResultsItem = document.createElement('div');
+    searchResultsItem.setAttribute('class', 'search-results__item');
+    searchResultsItem.setAttribute('id', value[0]);
 
-      const extract = document.createElement('p');
-      extract.setAttribute('class', 'extract');
-      extract.innerHTML = value[1].extract;
+    const title = document.createElement('a');
+    title.setAttribute('href', value[1].fullurl);
+    title.textContent = value[1].title;
 
-      const languageButton = document.createElement('div');
-      languageButton.setAttribute('class', 'button-language js-button-language');
-      languageButton.textContent = 'Show/Hide languages';
+    const extract = document.createElement('p');
+    extract.setAttribute('class', 'extract');
+    extract.innerHTML = value[1].extract;
 
-      searchResultsItem.appendChild(title);
-      searchResultsItem.appendChild(extract);
-      searchResultsItem.appendChild(languageButton);
-      searchResults.appendChild(searchResultsItem);
-    }
-  } 
+    const languageButton = document.createElement('div');
+    languageButton.setAttribute('class', 'button-language js-button-language');
+    languageButton.textContent = 'Show/Hide languages';
+
+    searchResultsItem.appendChild(title);
+    searchResultsItem.appendChild(extract);
+    searchResultsItem.appendChild(languageButton);
+    searchResults.appendChild(searchResultsItem);
+  }
 }
 
 export { renderSearchResults };
