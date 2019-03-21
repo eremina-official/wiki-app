@@ -36,14 +36,19 @@ function renderSearchResults(searchData) {
 }
 
 /* render a next slice of search results to DOM after More button click */
-function renderMoreSearchResults() {
+function renderMoreSearchResults(event) {
+  if (!event.target.classList.contains('js-more-results-button')) {
+    return;
+  }
+
   sliceBegin += 10;
   sliceEnd += 10;
   const resultPagesArraySlice = resultPagesArray.slice(sliceBegin, sliceEnd);
+  
   if (resultPagesArraySlice.length) {
     renderSearchResultsToDom(resultPagesArraySlice);
   } else {
-    //handle no more results option
+    event.target.remove();
   }
 }
 
