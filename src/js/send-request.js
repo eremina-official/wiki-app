@@ -10,6 +10,7 @@ const apiUrl = 'https://en.wikipedia.org/w/api.php';
 const params = {
   action: 'action=query',
   generator: 'generator=search',
+  gsrlimit: 'gsrlimit=20',
   prop: 'prop=info|extracts',
   lprop: 'prop=langlinks',
   inprop: 'inprop=url',
@@ -35,7 +36,7 @@ function makeSearch(event) {
 /* compose url to query API using the search keywords */
 function composeUrl() {
   const keywords = input.value;  
-  const url = `${apiUrl}?${params.action}&${params.generator}&gsrsearch=${keywords}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
+  const url = `${apiUrl}?${params.action}&${params.generator}&gsrsearch=${keywords}&${params.gsrlimit}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
   return url;
 }
 
