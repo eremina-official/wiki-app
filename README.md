@@ -1,4 +1,4 @@
-This app searches wikipedia with provided keywords and returns a list of relevant articles.
+This app searches English Wikipedia with provided keywords and returns a list of relevant articles.
 For each article it returns a list of its tiltles in all available languages.
 
 All data are returned by [MediaWiki API](https://www.mediawiki.org/wiki/API:Main_page).
