@@ -2,31 +2,51 @@
 
 //cache DOM
 const searchResults = document.querySelector('.search-results');
+const renderMoreSearchResultsButton = document.querySelector('.js-more-results-button');
+let resultPagesArray = [];
+let sliceBegin = 0;
+let sliceEnd = 10;
+
+//bind events
+//renderMoreSearchResultsButton.addEventListener('click', renderMoreSearchResults);
 
 //function declarations
 /* render search results */
 function renderSearchResults(searchData) {
-  const resultPages = searchData.query.pages;
-
-  /* Object.keys() returns an array of object's keys, it is used here to check if any pages are returned by the API */
-  if (Object.keys(resultPages).length) {
-
+  /* Object.keys() returns an array of object's keys, 
+  it is used here to check if any pages are returned by the API */
+  if (Object.keys(searchData.query.pages)) {
     /* searchData.query.pages turned out to be a non-iterable object, 
     therefore it was not possible to use for...of to iterate over its properties. 
     Instead it was possible to use Object.keys() or Object.entries() 
-    to iterate over searchData.query.pages properties. */
-    for (const [pageId, value] of Object.entries(resultPages)) {
+    to iterate over searchData.query.pages properties. 
+    searchData.query.pages are saved to an array to be able to conveniently slice it 
+    and iterate over it. */
+    for (const [pageId, value] of Object.entries(searchData.query.pages)) {
+      resultPagesArray.push([pageId, value]);
+    }
+
+    const resultPagesArraySlice = resultPagesArray.slice(sliceBegin, sliceEnd);
+    renderSearchResultsToDom(resultPagesArraySlice);
+  } else {
+    searchResults.textContent = 'No results found.';
+  }
+}
+
+function renderSearchResultsToDom(resultPagesArraySlice) {
+  if (resultPagesArraySlice.length) {
+    for (const value of resultPagesArraySlice) {
       const searchResultsItem = document.createElement('div');
       searchResultsItem.setAttribute('class', 'search-results__item');
-      searchResultsItem.setAttribute('id', pageId);
+      searchResultsItem.setAttribute('id', value[0]);
 
       const title = document.createElement('a');
-      title.setAttribute('href', value.fullurl);
-      title.textContent = value.title;
+      title.setAttribute('href', value[1].fullurl);
+      title.textContent = value[1].title;
 
       const extract = document.createElement('p');
       extract.setAttribute('class', 'extract');
-      extract.innerHTML = value.extract;
+      extract.innerHTML = value[1].extract;
 
       const languageButton = document.createElement('div');
       languageButton.setAttribute('class', 'button-language js-button-language');
@@ -37,9 +57,7 @@ function renderSearchResults(searchData) {
       searchResultsItem.appendChild(languageButton);
       searchResults.appendChild(searchResultsItem);
     }
-  } else {
-    searchResults.textContent = 'No results found.';
-  }
+  } 
 }
 
 export { renderSearchResults };
