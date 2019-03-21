@@ -76,6 +76,13 @@ function renderSearchResultsToDom(resultPagesArraySlice) {
     searchResultsItem.appendChild(languageButton);
     searchResults.appendChild(searchResultsItem);
   }
+
+  if (sliceBegin === 0) {
+    const showMoreResultsButton = document.createElement('div');
+    showMoreResultsButton.setAttribute('class', 'more-results-button js-more-results-button');
+    showMoreResultsButton.textContent = 'Show more results';
+    searchResultsContainer.appendChild(showMoreResultsButton);
+  }
 }
 
 export { renderSearchResults };
