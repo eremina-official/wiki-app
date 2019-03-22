@@ -31,3 +31,16 @@
 .button-language:hover {
   text-decoration: underline;
 }
+
+.more-results-button {
+  font-size: 80%;
+  display: inline-block;
+  border: 1px solid black;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.more-results-button:hover {
+  background-color: gray;
+  color: white;
+}
