@@ -13,19 +13,18 @@ document.addEventListener('click', renderMoreSearchResults);
 //function declarations
 /* render search results right after receiving data from the API */
 function renderSearchResults(searchData) {
-    /* reset the variables and clear the page */
-    sliceBegin = 0;
-    sliceEnd = 10;
-    resultPagesArray = [];
-    searchResults.innerHTML = '';
-    const showMoreResultsButton = document.querySelector('.js-more-results-button');
-    if (showMoreResultsButton) {
-      showMoreResultsButton.remove();
-    }
+  /* reset the variables and clear the page */
+  sliceBegin = 0;
+  sliceEnd = 10;
+  resultPagesArray = [];
+  searchResults.innerHTML = '';
+  const showMoreResultsButton = document.querySelector('.js-more-results-button');
+  if (showMoreResultsButton) {
+    showMoreResultsButton.remove();
+  }
 
-  /* Object.keys() returns an array of object's keys, 
-  it is used here to check if any pages are returned by the API */
-  if (Object.keys(searchData.query.pages)) {
+  /* check if any pages are returned by the API */
+  if (searchData.query) {
     /* searchData.query.pages turned out to be a non-iterable object, 
     therefore it was not possible to use for...of to iterate over its properties. 
     Instead it was possible to use Object.keys() or Object.entries() 
