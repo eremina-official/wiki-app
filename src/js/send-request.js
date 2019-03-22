@@ -31,6 +31,9 @@ function makeSearch(event) {
   event.preventDefault();
   const url = composeUrl();
   makeRequest(url, renderSearchResults);
+
+  /* clear the input */
+  input.value = '';
 }
 
 /* compose url to query API using the search keywords */
