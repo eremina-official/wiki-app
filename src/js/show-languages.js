@@ -3,7 +3,7 @@
 import { requestLanguages } from './send-request.js';
 
 //declare variables
-/* page and pageId declared in the module scope so that both showLanguages() 
+/* page and pageId are declared in the module scope so that both showLanguages() 
 and renderLanguages() had access to them */
 let page;
 let pageId;
@@ -29,7 +29,6 @@ function showLanguages(event) {
 
 /* render languages when the Show/Hide languages button is clicked for the first time */
 function renderLanguages(searchData) {
-console.log(searchData);
   const langlinks = searchData.query.pages[pageId]['langlinks'];
   const langContainer = document.createElement('div');
   langContainer.setAttribute('class', 'lang-container js-lang-container');
