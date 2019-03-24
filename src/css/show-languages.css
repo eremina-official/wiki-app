@@ -1,12 +1,11 @@
 .lang-container {
   display: flex;
   flex-direction: column;
+  font-size: 80%;
 }
 
 .lang-container__item {
-  font-size: 80%;
   padding: 6px;
-
 }
 
 .is-not-active {
@@ -17,9 +16,17 @@
   .lang-container {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .lang-container__item {
     padding: 14px;
+    flex-basis: 50%;
+  }
+}
+
+@media (min-width: 700px) {
+  .lang-container__item {
+    flex-basis: 25%;
   }
 }
