@@ -35,9 +35,18 @@ function makeSearch(event) {
 
 /* compose url to query API using the search keywords */
 function composeUrl() {
-  const keywords = input.value;  
-  const url = `${apiUrl}?${params.action}&${params.generator}&gsrsearch=${keywords}&${params.gsrlimit}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
-  return url;
+  const keywordsOrUrl = input.value;
+  let url;
+  if (keywordsOrUrl.includes('https://en.wikipedia.org/wiki/')) {
+    const sliceIndex = keywordsOrUrl.lastIndexOf('/');
+    const substring = keywordsOrUrl.slice(sliceIndex + 1);
+    const title = substring.replace(/_/g, '%20');
+    url = `${apiUrl}?${params.action}&titles=${title}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
+    return url;
+  } else {  
+    url = `${apiUrl}?${params.action}&${params.generator}&gsrsearch=${keywordsOrUrl}&${params.gsrlimit}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
+    return url;
+  }
 }
 
 /* request languages. Languages are requested with a separate query because the wiki API returns
