@@ -1,4 +1,4 @@
-/* this module handles rendering of wiki articles returned by API query with keywords */
+/* this module handles rendering of wiki articles returned by API query with keywords or page title */
 
 //cache DOM, declare variables
 const searchResultsContainer = document.querySelector('.search-results-container');
