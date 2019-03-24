@@ -33,13 +33,13 @@ function makeSearch(event) {
   makeRequest(url, renderSearchResults);
 }
 
-/* compose url to query API using the search keywords */
+/* compose url to query API using the search keywords or url */
 function composeUrl() {
   const keywordsOrUrl = input.value;
   let url;
   if (keywordsOrUrl.includes('https://en.wikipedia.org/wiki/')) {
-    const sliceIndex = keywordsOrUrl.lastIndexOf('/');
-    const substring = keywordsOrUrl.slice(sliceIndex + 1);
+    const sliceIndex = keywordsOrUrl.lastIndexOf('/') + 1;
+    const substring = keywordsOrUrl.slice(sliceIndex);
     const title = substring.replace(/_/g, '%20');
     url = `${apiUrl}?${params.action}&titles=${title}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
     return url;
