@@ -82,7 +82,7 @@ function renderSearchResultsToDom(resultPagesArraySlice) {
     searchResults.appendChild(searchResultsItem);
   }
 
-  if (sliceBegin === 0) {
+  if (sliceBegin === 0 && resultPagesArraySlice.length > 1) {
     const showMoreResultsButton = document.createElement('div');
     showMoreResultsButton.setAttribute('class', 'more-results-button js-more-results-button');
     showMoreResultsButton.textContent = 'Show more results';
