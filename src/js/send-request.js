@@ -33,7 +33,7 @@ history.replaceState({url: null}, 'default state', './');
 function makeSearch(event) {
   event.preventDefault();
   const url = composeUrl();
-  history.pushState({url: url}, document.title, `./q=${url}`);
+  history.pushState({url: url}, document.title, `./`);
   makeRequest(url, renderSearchResults);
 }
 
