@@ -24,12 +24,16 @@ const params = {
 
 //bind events
 form.addEventListener('submit', makeSearch);
+window.addEventListener('popstate', event => { makeRequest(event.state.url, renderSearchResults) });
+
+history.replaceState({url: null}, 'default state', './');
 
 //function declarations
 /* prevent default form submission and add custom form handling */
 function makeSearch(event) {
   event.preventDefault();
   const url = composeUrl();
+  history.pushState({url: url}, document.title, `./q=${url}`);
   makeRequest(url, renderSearchResults);
 }
 
