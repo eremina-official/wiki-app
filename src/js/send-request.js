@@ -28,8 +28,9 @@ form.addEventListener('submit', makeSearch);
 window.addEventListener('popstate', event => { 
   //console.log('popstate',document.location);
   //popstate event does not fire when browser back button is pressed to return from an external resource page
-  //if (event.state) { 
-  //makeRequest(event.state.url, renderSearchResults); }
+  if (event.state) { 
+  makeRequest(event.state.url, renderSearchResults); 
+  }
 });
 
 /* repeat request and display data when navigating with browser back and forward buttons 
@@ -40,6 +41,7 @@ Solutions to make the search results stay on the page:
   cache search results in local or session storage and capture back button click to render search results again,
   use the fact that the input field is not cleared after back button click and perform ajax request again after back button click */
 window.addEventListener('load', () => {
+  //load event does not fire when moving between history entries added by pushState()
   if (input.value) {
     const url = composeUrl();
     makeRequest(url, renderSearchResults);
