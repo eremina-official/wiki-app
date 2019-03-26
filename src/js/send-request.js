@@ -24,16 +24,34 @@ const params = {
 
 //bind events
 form.addEventListener('submit', makeSearch);
-window.addEventListener('popstate', event => { makeRequest(event.state.url, renderSearchResults) });
 
-history.replaceState({url: null}, 'default state', './');
+window.addEventListener('popstate', event => { 
+  //console.log('popstate',document.location);
+  //popstate event does not fire when browser back button is pressed to return from an external resource page
+  //if (event.state) { 
+  //makeRequest(event.state.url, renderSearchResults); }
+});
+
+/* repeat request and display data when navigating with browser back and forward buttons 
+the Ajax and browser back navigation button problem: after the search results are rendered to the screen, 
+when user navigates to another page and then clicks browser back button search results are cleared.
+Solutions to make the search results stay on the page:
+  assign a new URL to the page state after rendering search results, so the page will be saved in history,
+  cache search results in local or session storage and capture back button click to render search results again,
+  use the fact that the input field is not cleared after back button click and perform ajax request again after back button click */
+window.addEventListener('load', () => {
+  if (input.value) {
+    const url = composeUrl();
+    makeRequest(url, renderSearchResults);
+  }
+});
 
 //function declarations
 /* prevent default form submission and add custom form handling */
 function makeSearch(event) {
   event.preventDefault();
   const url = composeUrl();
-  history.pushState({url: url}, document.title, `./`);
+  history.pushState({url: url}, document.title, `?=${input.value}`);
   makeRequest(url, renderSearchResults);
 }
 
