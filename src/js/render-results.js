@@ -41,7 +41,7 @@ function renderSearchResults(searchData) {
   }
 }
 
-/* render a next slice of search results to DOM after Show more results button click */
+/* render a next slice of search results to DOM after More button click */
 function renderMoreSearchResults(event) {
   if (!event.target.classList.contains('js-more-results-button')) {
     return;
