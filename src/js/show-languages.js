@@ -2,7 +2,8 @@
 
 import { requestLanguages } from './send-request.js';
 
-//declare variables
+//cache DOM, declare variables
+const languageInput = document.querySelector('.js-language-input');
 /* page and pageId are declared in the module scope so that both showLanguages() 
 and renderLanguages() had access to them */
 let page;
@@ -27,9 +28,24 @@ function showLanguages(event) {
   }
 }
 
-/* render languages when the Show/Hide languages button is clicked for the first time */
+/* check if it is needed to render all languages or just specified by checkbox
+ when the Show/Hide languages button is clicked for the first time */
 function renderLanguages(searchData) {
-  const langlinks = searchData.query.pages[pageId]['langlinks'];
+  let langlinks = searchData.query.pages[pageId]['langlinks'];
+  langlinks = languageInput.checked ? langlinks.filter(filterByLang) : langlinks;
+  renderLanguagesToDom(langlinks);
+}
+
+function filterByLang(langlink) {
+  if ( langlink.lang === 'de' || langlink.lang === 'pl' || langlink.lang === 'ru' ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/* render languages to DOM */
+function renderLanguagesToDom(langlinks) {
   const langContainer = document.createElement('div');
   langContainer.setAttribute('class', 'lang-container js-lang-container');
 
