@@ -44,6 +44,18 @@ function filterByLang(langlink) {
   }
 }
 
+function showSelectedLanguages() {
+  const langContainers = document.querySelectorAll('.js-lang-container');
+  if (langContainers.length) {
+    langContainers.forEach(langContainer => {
+      const page = langContainer.parentElement;
+      const pageId = page.getAttribute('id');
+      langContainer.remove();
+      requestLanguages(pageId);
+    });
+  }
+}
+
 /* render languages to DOM */
 function renderLanguagesToDom(langlinks) {
   const langContainer = document.createElement('div');
