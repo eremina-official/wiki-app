@@ -44,6 +44,7 @@ function filterByLang(langlink) {
   }
 }
 
+/* find all langContainer elements to apply change in the languageInput checkbox */
 function showSelectedLanguages() {
   const langContainers = document.querySelectorAll('.js-lang-container');
   if (langContainers.length) {
