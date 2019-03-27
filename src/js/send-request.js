@@ -52,7 +52,7 @@ window.addEventListener('load', () => {
 function makeSearch(event) {
   event.preventDefault();
   const url = composeUrl();
-  history.pushState({url: url}, document.title, `?=${input.value}`);
+  history.pushState({url: url}, document.title, `?q=${input.value}`);
   makeRequest(url, renderSearchResults);
 }
 
