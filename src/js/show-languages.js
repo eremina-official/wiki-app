@@ -11,6 +11,7 @@ let pageId;
 
 //bind events
 document.addEventListener('click', showLanguages);
+languageInput.addEventListener('change', showSelectedLanguages);
 
 //function declarations
 /* handle click for Show/Hide languages button */
