@@ -4,10 +4,6 @@ import { requestLanguages } from './send-request.js';
 
 //cache DOM, declare variables
 const languageInput = document.querySelector('.js-language-input');
-/* page and pageId are declared in the module scope so that both showLanguages() 
-and renderLanguages() had access to them */
-let page;
-let pageId;
 
 //bind events
 document.addEventListener('click', showLanguages);
@@ -23,8 +19,8 @@ function showLanguages(event) {
   if (event.target.nextElementSibling) {
     event.target.nextElementSibling.classList.toggle('is-not-active');
   } else {
-    page = event.target.parentElement;
-    pageId = page.getAttribute('id');
+    const page = event.target.parentElement;
+    const pageId = page.getAttribute('id');
     requestLanguages(pageId);
   }
 }
@@ -32,9 +28,12 @@ function showLanguages(event) {
 /* check if it is needed to render all languages or just specified by checkbox
  when the Show/Hide languages button is clicked for the first time */
 function renderLanguages(searchData) {
-  let langlinks = searchData.query.pages[pageId]['langlinks'];
-  langlinks = languageInput.checked ? langlinks.filter(filterByLang) : langlinks;
-  renderLanguagesToDom(langlinks);
+  if (searchData.query) {
+    const pageId = Object.keys(searchData.query.pages);
+    let langlinks = searchData.query.pages[pageId]['langlinks'];
+    langlinks = languageInput.checked ? langlinks.filter(filterByLang) : langlinks;
+    renderLanguagesToDom(langlinks, pageId);
+  }
 }
 
 function filterByLang(langlink) {
@@ -58,7 +57,7 @@ function showSelectedLanguages() {
 }
 
 /* render languages to DOM */
-function renderLanguagesToDom(langlinks) {
+function renderLanguagesToDom(langlinks, pageId) {
   const langContainer = document.createElement('div');
   langContainer.setAttribute('class', 'lang-container js-lang-container');
 
@@ -85,6 +84,7 @@ function renderLanguagesToDom(langlinks) {
   } else {
     langContainer.textContent = 'There are no interlanguage links for this page.'
   }
+  const page = document.getElementById(pageId);
   page.appendChild(langContainer); 
 }
 
