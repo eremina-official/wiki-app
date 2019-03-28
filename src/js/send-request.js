@@ -5,7 +5,7 @@ import { renderLanguages } from './show-languages.js';
 
 //cache DOM, declare variables
 const form = document.querySelector('.js-form');
-const input = document.querySelector('.js-input-keyword');
+const input = document.querySelector('.js-keyword-input');
 const apiUrl = 'https://en.wikipedia.org/w/api.php';
 const params = {
   action: 'action=query',
