@@ -60,7 +60,7 @@ function makeSearch(event) {
 function composeUrl() {
   const keywordsOrUrl = input.value;
   let url;
-  if (keywordsOrUrl.includes('https://en.wikipedia.org/wiki/')) {
+  if (keywordsOrUrl.includes('https://en.wikipedia.org/wiki/') || keywordsOrUrl.includes('https://en.m.wikipedia.org/wiki/')) {
     const sliceIndex = keywordsOrUrl.lastIndexOf('/') + 1;
     const substring = keywordsOrUrl.slice(sliceIndex);
     const title = substring.replace(/_/g, '%20');
