@@ -15,17 +15,19 @@
 </head>
 
 <body>
-  <header>Wiki App</header>
+  <header><a href="https://eremina-official.github.io/wiki-app/">Wiki App</a></header>
 
   <div class="main">
     <form class="form js-form">
       <!-- value of label's for attribute must be the same as of input's id -->
-      <label for="keyword">Search articles by keywords or enter a wiki page URL:</label>
-      <input type="text" name="q" id="keyword" class="input-keyword js-input-keyword" maxlength="100" required>
-      <button class="submit-button">Search</button>
+      <label for="keyword" class="form__keyword-input-label">Search articles by keywords or enter a wiki page URL:</label>
+      <div class="form__keyword-input-wrapper">
+        <input type="text" name="q" id="keyword" class="keyword-input js-keyword-input" maxlength="100" required>
+        <button class="submit-button">Search</button>
+      </div>
       <div>
-        <input type="checkbox" id="language" class="js-language-input" name="language">
-        <label for="language">Show titles only in German, Polish and Russian</label>
+        <input type="checkbox" id="language" class="language-input js-language-input" name="language">
+        <label for="language" class="language-input-label">Show titles only in German, Polish and Russian</label>
       </div>
     </form>
 
