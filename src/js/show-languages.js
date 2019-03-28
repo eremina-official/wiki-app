@@ -83,7 +83,7 @@ function renderLanguagesToDom(langlinks, pageId) {
       langContainer.appendChild(langContainerItem);
     });
   } else {
-    langContainer.textContent = 'There are no interlanguage links for this page.'
+    langContainer.textContent = 'There are no interlanguage links found.'
   }
   const page = document.getElementById(pageId);
   page.appendChild(langContainer); 
