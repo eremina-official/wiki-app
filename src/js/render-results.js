@@ -1,5 +1,7 @@
 /* this module handles rendering of wiki articles returned by API query with keywords or page title */
 
+import '../css/search-results.css';
+
 //cache DOM, declare variables
 const searchResultsContainer = document.querySelector('.search-results-container');
 const searchResults = document.querySelector('.search-results');

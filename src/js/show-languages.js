@@ -1,6 +1,7 @@
 /* this module handles rendering and showing/hiding langlinks for wiki articles */
 
 import { requestLanguages } from './send-request.js';
+import '../css/show-languages.css';
 
 //cache DOM, declare variables
 const languageInput = document.querySelector('.js-language-input');
