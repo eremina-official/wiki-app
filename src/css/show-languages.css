@@ -16,7 +16,6 @@
   .lang-container {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
   }
 
   .lang-container__item {
