@@ -62,16 +62,20 @@ function makeSearch(event) {
 function composeUrl() {
   const keywordsOrUrl = input.value;
   let url;
-  if (keywordsOrUrl.includes('https://en.wikipedia.org/wiki/') || keywordsOrUrl.includes('https://en.m.wikipedia.org/wiki/')) {
+
+  if (
+    keywordsOrUrl.includes('https://en.wikipedia.org/wiki/') || 
+    keywordsOrUrl.includes('https://en.m.wikipedia.org/wiki/')
+  ) {
     const sliceIndex = keywordsOrUrl.lastIndexOf('/') + 1;
     const substring = keywordsOrUrl.slice(sliceIndex);
     const title = substring.replace(/_/g, '%20');
     url = `${apiUrl}?${params.action}&titles=${title}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
-    return url;
   } else {  
     url = `${apiUrl}?${params.action}&${params.generator}&gsrsearch=${keywordsOrUrl}&${params.gsrlimit}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
-    return url;
   }
+  
+  return url;
 }
 
 /* request languages. Languages are requested with a separate query because the wiki API returns
