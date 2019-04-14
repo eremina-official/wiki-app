@@ -27,7 +27,7 @@ function showLanguages(event) {
 }
 
 /* check if it is needed to render all languages or just specified by checkbox
- when the Show/Hide languages button is clicked for the first time */
+when the Show/Hide languages button is clicked for the first time */
 function renderLanguages(searchData) {
   if (searchData.query) {
     const pageId = Object.keys(searchData.query.pages);
