@@ -33,7 +33,7 @@ window.addEventListener('load', () => {
 
 //function declarations
 function assignUrl(url, inputValue) {
-  history.pushState({url: url, inputValue: inputValue}, document.title, `?q=${input.value}`);
+  history.pushState({url: url, inputValue: inputValue}, document.title, `?q=${inputValue}`);
 }
 
 export { assignUrl };
