@@ -13,5 +13,6 @@ All data are returned by [MediaWiki API](https://www.mediawiki.org/wiki/API:Main
 - CSS
 - JavaScript
 - Fetch API
+- History API
 - RWD
 - Webpack
