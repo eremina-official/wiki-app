@@ -2,6 +2,7 @@
 
 import { renderSearchResults } from './render-results.js';
 import { renderLanguages } from './show-languages.js';
+import { assignUrl } from './manage-history.js';
 
 //cache DOM, declare variables
 const form = document.querySelector('.js-form');
@@ -25,36 +26,13 @@ const params = {
 //bind events
 form.addEventListener('submit', makeSearch);
 
-/* repeat request and display data when navigating with browser back and forward buttons 
-the Ajax and browser back navigation button problem: after the search results are rendered to the screen, 
-when user navigates to another page and then clicks browser back button search results are cleared.
-Solutions to make the search results stay on the page:
-assign a new URL to the page state after rendering search results, so the page will be saved in history,
-cache search results in local or session storage and capture back button click to render search results again,
-use the fact that the input field is not cleared after back button click and perform ajax request again after 
-back button click */
-window.addEventListener('popstate', event => { 
-  /* popstate event does not fire when browser back button is pressed to return from an external resource page */
-  if (event.state) { 
-    makeRequest(event.state.url, renderSearchResults); 
-  }
-});
-
-window.addEventListener('load', () => {
-  /* load event does not fire when moving between history entries added by pushState() */
-  if (input.value) {
-    const url = composeUrl();
-    makeRequest(url, renderSearchResults);
-  }
-});
-
 //function declarations
 /* prevent default form submission and add custom form handling */
 function makeSearch(event) {
   event.preventDefault();
   const url = composeUrl();
   /* assign a new url to the page with the search results */
-  history.pushState({url: url}, document.title, `?q=${input.value}`);
+  assignUrl(url, input.value);
   makeRequest(url, renderSearchResults);
 }
 
@@ -101,4 +79,4 @@ function makeRequest(url, callback) {
     .catch(error => console.log(error));
 }
 
-export { requestLanguages };
+export { composeUrl, makeRequest, requestLanguages };
