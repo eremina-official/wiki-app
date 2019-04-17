@@ -15,6 +15,7 @@ document.addEventListener('click', renderMoreSearchResults);
 //function declarations
 /* render search results right after receiving data from the API */
 function renderSearchResults(searchData) {
+  /* reset the variables and clear the page */
   resetPage();
 
   /* check if any pages are returned by the API */
@@ -35,7 +36,6 @@ function renderSearchResults(searchData) {
   }
 }
 
-/* reset the variables and clear the page */
 function resetPage() {
   sliceBegin = 0;
   sliceEnd = 10;
