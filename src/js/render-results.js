@@ -15,15 +15,7 @@ document.addEventListener('click', renderMoreSearchResults);
 //function declarations
 /* render search results right after receiving data from the API */
 function renderSearchResults(searchData) {
-  /* reset the variables and clear the page */
-  sliceBegin = 0;
-  sliceEnd = 10;
-  resultPagesArray = [];
-  searchResults.innerHTML = '';
-  const showMoreResultsButton = document.querySelector('.js-more-results-button');
-  if (showMoreResultsButton) {
-    showMoreResultsButton.remove();
-  }
+  resetPage();
 
   /* check if any pages are returned by the API */
   if (searchData.query) {
@@ -40,6 +32,18 @@ function renderSearchResults(searchData) {
     renderSearchResultsToDom(resultPagesArraySlice);
   } else {
     searchResults.textContent = 'No results found.';
+  }
+}
+
+/* reset the variables and clear the page */
+function resetPage() {
+  sliceBegin = 0;
+  sliceEnd = 10;
+  resultPagesArray = [];
+  searchResults.innerHTML = '';
+  const showMoreResultsButton = document.querySelector('.js-more-results-button');
+  if (showMoreResultsButton) {
+    showMoreResultsButton.remove();
   }
 }
 
