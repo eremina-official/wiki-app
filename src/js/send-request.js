@@ -56,8 +56,12 @@ function composeUrl(inputValue) {
   return url;
 }
 
-/* request languages. Languages are requested with a separate query because the wiki API returns
-not more than 500 langlinks per one request, and for ten wiki pages there is often more languages linked. */
+/* 
+  Request languages. 
+  Languages are requested with a separate query because the wiki API returns
+  not more than 500 langlinks per one request, and for ten wiki pages 
+  there is often more languages linked. 
+*/
 function requestLanguages(pageId) {
   const langUrl = composeLangUrl(pageId);
   makeRequest(langUrl, renderLanguages);
@@ -79,4 +83,8 @@ function makeRequest(url, callback) {
     .catch(error => console.log(error));
 }
 
-export { composeUrl, makeRequest, requestLanguages };
+export { params, 
+         composeUrl, 
+         makeRequest, 
+         requestLanguages 
+       };
