@@ -4,7 +4,7 @@
   "description": "This app returns a list of wiki article tiltles in all available languages.",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack"
   },
   "repository": {
