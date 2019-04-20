@@ -7,8 +7,8 @@ import { assignUrl } from './manage-history.js';
 //cache DOM, declare variables
 const form = document.querySelector('.js-form');
 const input = document.querySelector('.js-keyword-input');
-const apiUrl = 'https://en.wikipedia.org/w/api.php';
 const params = {
+  apiUrlEn: 'https://en.wikipedia.org/w/api.php',
   action: 'action=query',
   generator: 'generator=search',
   gsrlimit: 'gsrlimit=20',
@@ -48,9 +48,9 @@ function composeUrl(inputValue) {
     const sliceIndex = inputValue.lastIndexOf('/') + 1;
     const substring = inputValue.slice(sliceIndex);
     const title = substring.replace(/_/g, '%20');
-    url = `${apiUrl}?${params.action}&titles=${title}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
+    url = `${params.apiUrlEn}?${params.action}&titles=${title}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
   } else {  
-    url = `${apiUrl}?${params.action}&${params.generator}&gsrsearch=${inputValue}&${params.gsrlimit}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
+    url = `${params.apiUrlEn}?${params.action}&${params.generator}&gsrsearch=${inputValue}&${params.gsrlimit}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
   }
   
   return url;
@@ -64,7 +64,7 @@ function requestLanguages(pageId) {
 }
 
 function composeLangUrl(pageId) {
-  const url = `${apiUrl}?${params.action}&pageids=${pageId}&${params.lprop}&${params.llprop}&${params.lllimit}&${params.format}&${params.origin}`;
+  const url = `${params.apiUrlEn}?${params.action}&pageids=${pageId}&${params.lprop}&${params.llprop}&${params.lllimit}&${params.format}&${params.origin}`;
   return url;
 }
 
