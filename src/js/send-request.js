@@ -30,27 +30,27 @@ form.addEventListener('submit', makeSearch);
 /* prevent default form submission and add custom form handling */
 function makeSearch(event) {
   event.preventDefault();
-  const url = composeUrl();
+  const inputValue = input.value;
+  const url = composeUrl(inputValue);
   /* assign a new url to the page with the search results */
-  assignUrl(url, input.value);
+  assignUrl(url, inputValue);
   makeRequest(url, renderSearchResults);
 }
 
 /* compose url to query API using the search keywords or url */
-function composeUrl() {
-  const keywordsOrUrl = input.value;
+function composeUrl(inputValue) {
   let url;
 
   if (
-    keywordsOrUrl.includes('https://en.wikipedia.org/wiki/') || 
-    keywordsOrUrl.includes('https://en.m.wikipedia.org/wiki/')
+    inputValue.includes('https://en.wikipedia.org/wiki/') || 
+    inputValue.includes('https://en.m.wikipedia.org/wiki/')
   ) {
-    const sliceIndex = keywordsOrUrl.lastIndexOf('/') + 1;
-    const substring = keywordsOrUrl.slice(sliceIndex);
+    const sliceIndex = inputValue.lastIndexOf('/') + 1;
+    const substring = inputValue.slice(sliceIndex);
     const title = substring.replace(/_/g, '%20');
     url = `${apiUrl}?${params.action}&titles=${title}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
   } else {  
-    url = `${apiUrl}?${params.action}&${params.generator}&gsrsearch=${keywordsOrUrl}&${params.gsrlimit}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
+    url = `${apiUrl}?${params.action}&${params.generator}&gsrsearch=${inputValue}&${params.gsrlimit}&${params.prop}&${params.inprop}&${params.exprop}&${params.format}&${params.origin}`;
   }
   
   return url;
