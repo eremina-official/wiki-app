@@ -8,7 +8,7 @@ const languageInput = document.querySelector('.js-language-input');
 
 //bind events
 document.addEventListener('click', showLanguages);
-languageInput.addEventListener('change', showSelectedLanguages);
+document.addEventListener('change', showSelectedLanguages);
 
 //function declarations
 /* handle click for Show/Hide languages button */
@@ -46,7 +46,9 @@ function filterByLang(langlink) {
 }
 
 /* find all langContainer elements to apply change in the languageInput checkbox */
-function showSelectedLanguages() {
+function showSelectedLanguages(event) {
+  if (event.target !== languageInput) { return; }
+  
   const langContainers = document.querySelectorAll('.js-lang-container');
   if (langContainers.length) {
     langContainers.forEach(langContainer => {
