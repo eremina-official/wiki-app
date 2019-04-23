@@ -26,13 +26,17 @@ function showLanguages(event) {
   }
 }
 
-/* check if it is needed to render all languages or just specified by checkbox
-when the Show/Hide languages button is clicked for the first time */
+/* 
+  check if it is needed to render all languages or just specified by checkbox
+  when the Show/Hide languages button is clicked for the first time 
+*/
 function renderLanguages(searchData) {
   if (searchData.query) {
     const pageId = Object.keys(searchData.query.pages);
     let langlinks = searchData.query.pages[pageId]['langlinks'];
-    langlinks = languageInput.checked ? langlinks.filter(filterByLang) : langlinks;
+    langlinks = languageInput.checked 
+      ? langlinks.filter(filterByLang) 
+      : langlinks;
     renderLanguagesToDom(langlinks, pageId);
   }
 }
