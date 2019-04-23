@@ -24,11 +24,13 @@ const params = {
 };
 
 //bind events
-form.addEventListener('submit', makeSearch);
+document.addEventListener('submit', makeSearch);
 
 //function declarations
 /* prevent default form submission and add custom form handling */
 function makeSearch(event) {
+  if (event.target !== form) { return; }
+
   event.preventDefault();
   const inputValue = input.value;
   const url = composeUrl(inputValue);
@@ -83,8 +85,4 @@ function makeRequest(url, callback) {
     .catch(error => console.log(error));
 }
 
-export { params, 
-         composeUrl, 
-         makeRequest, 
-         requestLanguages 
-       };
+export { makeSearch, composeUrl, composeLangUrl, makeRequest, requestLanguages };
