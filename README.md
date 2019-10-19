@@ -16,3 +16,5 @@ All data are returned by [MediaWiki API](https://www.mediawiki.org/wiki/API:Main
 - History API
 - RWD
 - Webpack
+- Jest
+- Cypress
