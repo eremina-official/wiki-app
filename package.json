@@ -5,6 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "jest",
+    "test:t": "jest --t=renderSearchResultsToDom",
+    "cypress": "cypress open",
     "build": "webpack"
   },
   "repository": {
@@ -23,6 +25,7 @@
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.1",
+    "cypress": "^3.4.1",
     "jest": "^24.7.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
