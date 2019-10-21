@@ -3,18 +3,19 @@ describe('wiki app', () => {
     
     const searchUrl = 'https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Web&gsrlimit=20&prop=info|extracts&inprop=url&exintro=&explaintext=&exsentences=1&format=json&origin=*';
 
-
-    cy.visit('/')
+    /* 
+      Writing of json reponce to the fixtures file for a specific url.
+      cy.request(searchUrl).then(responce => {
+      cy.writeFile("cypress/fixtures/web.json", responce.body)
+      }) 
+    */
 
     cy.server()
-    cy.route({
-      method: 'GET',
-      url: searchUrl,
-      responce: 'fixture:web.json'
-    })
+    cy.route('GET', searchUrl, 'fixture:web')
+    cy.visit('/')
 
     cy.get('.keyword-input')
       .type('Web')
-      .type('{enter}') 
+      .type('{enter}')  
   })
 })
