@@ -19,7 +19,7 @@ function renderSearchResults(searchData) {
   resetPage();
 
   /* check if any pages are returned by the API */
-  if (searchData.query) {
+  if (searchData.data.query) {
     /* 
       searchData.query.pages turned out to be a non-iterable object, 
       therefore it was not possible to use for...of to iterate over its properties. 
@@ -28,7 +28,7 @@ function renderSearchResults(searchData) {
       searchData.query.pages are saved to an array to be able to conveniently slice it 
       and iterate over it. 
     */
-    for (const [pageId, value] of Object.entries(searchData.query.pages)) {
+    for (const [pageId, value] of Object.entries(searchData.data.query.pages)) {
       resultPagesArray.push([pageId, value]);
     }
     const resultPagesArraySlice = resultPagesArray.slice(sliceBegin, sliceEnd);

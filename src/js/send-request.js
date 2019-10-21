@@ -3,6 +3,7 @@
 import { renderSearchResults } from './render-results.js';
 import { renderLanguages } from './show-languages.js';
 import { assignUrl } from './manage-history.js';
+import axios from 'axios';
 
 //cache DOM, declare variables
 const form = document.querySelector('.js-form');
@@ -76,11 +77,9 @@ function composeLangUrl(pageId) {
 
 /* call the API */
 function makeRequest(url, callback) {
-  fetch(url)
-    .then(response => response.json())
-    /* .json() method returns a promise, therefore it's needed to chain one more .then() method */
-    .then((searchData) => {
-      callback(searchData);
+  axios.get(url)
+    .then(responce => {
+      callback(responce);
     })
     .catch(error => console.log(error));
 }
