@@ -1,7 +1,7 @@
 describe('wiki app', () => {
-  it('displays results for wild web', () => {
+  it('displays results for web', () => {
     
-    const searchUrl = 'https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Web&gsrlimit=20&prop=info|extracts&inprop=url&exintro=&explaintext=&exsentences=1&format=json&origin=*';
+    const searchKeyword = 'https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=Web&gsrlimit=20&prop=info|extracts&inprop=url&exintro=&explaintext=&exsentences=1&format=json&origin=*';
 
     /* 
       Writing of json reponce to the fixtures file for a specific url.
@@ -11,7 +11,8 @@ describe('wiki app', () => {
     */
 
     cy.server()
-    cy.route('GET', searchUrl, 'fixture:web')
+    cy.route('GET', searchKeyword, 'fixture:web')
+    cy.route('GET', searchUrl, 'fixture:url')
     cy.visit('/')
 
     cy.get('.keyword-input')
