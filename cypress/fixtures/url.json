@@ -1,0 +1,23 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "33139": {
+        "pageid": 33139,
+        "ns": 0,
+        "title": "World Wide Web",
+        "contentmodel": "wikitext",
+        "pagelanguage": "en",
+        "pagelanguagehtmlcode": "en",
+        "pagelanguagedir": "ltr",
+        "touched": "2019-10-22T19:49:33Z",
+        "lastrevid": 922542074,
+        "length": 93429,
+        "fullurl": "https://en.wikipedia.org/wiki/World_Wide_Web",
+        "editurl": "https://en.wikipedia.org/w/index.php?title=World_Wide_Web&action=edit",
+        "canonicalurl": "https://en.wikipedia.org/wiki/World_Wide_Web",
+        "extract": "The World Wide Web (WWW), commonly known as the Web, is an information system where documents and other web resources are identified by Uniform Resource Locators (URLs, such as https://www.example.com/), which may be interlinked by hypertext, and are accessible over the Internet."
+      }
+    }
+  }
+}
