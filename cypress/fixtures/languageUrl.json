@@ -1,0 +1,242 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "33120": {
+        "pageid": 33120,
+        "ns": 0,
+        "title": "Web crawler",
+        "langlinks": [
+          {
+            "lang": "af",
+            "url": "https://af.wikipedia.org/wiki/Webkruiper",
+            "autonym": "Afrikaans",
+            "*": "Webkruiper"
+          },
+          {
+            "lang": "ar",
+            "url": "https://ar.wikipedia.org/wiki/%D8%B2%D8%A7%D8%AD%D9%81_%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D8%A9",
+            "autonym": "العربية",
+            "*": "زاحف الشبكة"
+          },
+          {
+            "lang": "az",
+            "url": "https://az.wikipedia.org/wiki/Veb_Crawler",
+            "autonym": "azərbaycanca",
+            "*": "Veb Crawler"
+          },
+          {
+            "lang": "bar",
+            "url": "https://bar.wikipedia.org/wiki/Webcrawler",
+            "autonym": "Boarisch",
+            "*": "Webcrawler"
+          },
+          {
+            "lang": "ca",
+            "url": "https://ca.wikipedia.org/wiki/Aranya_web",
+            "autonym": "català",
+            "*": "Aranya web"
+          },
+          {
+            "lang": "cs",
+            "url": "https://cs.wikipedia.org/wiki/Web_crawler",
+            "autonym": "čeština",
+            "*": "Web crawler"
+          },
+          {
+            "lang": "cy",
+            "url": "https://cy.wikipedia.org/wiki/Ymgripiwr_gwe",
+            "autonym": "Cymraeg",
+            "*": "Ymgripiwr gwe"
+          },
+          {
+            "lang": "de",
+            "url": "https://de.wikipedia.org/wiki/Webcrawler",
+            "autonym": "Deutsch",
+            "*": "Webcrawler"
+          },
+          {
+            "lang": "es",
+            "url": "https://es.wikipedia.org/wiki/Ara%C3%B1a_web",
+            "autonym": "español",
+            "*": "Araña web"
+          },
+          {
+            "lang": "eu",
+            "url": "https://eu.wikipedia.org/wiki/Web_crawler",
+            "autonym": "euskara",
+            "*": "Web crawler"
+          },
+          {
+            "lang": "fa",
+            "url": "https://fa.wikipedia.org/wiki/%D8%AE%D8%B2%D9%86%D8%AF%D9%87_%D9%88%D8%A8",
+            "autonym": "فارسی",
+            "*": "خزنده وب"
+          },
+          {
+            "lang": "fi",
+            "url": "https://fi.wikipedia.org/wiki/Hakurobotti",
+            "autonym": "suomi",
+            "*": "Hakurobotti"
+          },
+          {
+            "lang": "fr",
+            "url": "https://fr.wikipedia.org/wiki/Robot_d%27indexation",
+            "autonym": "français",
+            "*": "Robot d'indexation"
+          },
+          {
+            "lang": "he",
+            "url": "https://he.wikipedia.org/wiki/%D7%96%D7%97%D7%9C%D7%9F_%D7%A8%D7%A9%D7%AA",
+            "autonym": "עברית",
+            "*": "זחלן רשת"
+          },
+          {
+            "lang": "hu",
+            "url": "https://hu.wikipedia.org/wiki/Keres%C5%91robot",
+            "autonym": "magyar",
+            "*": "Keresőrobot"
+          },
+          {
+            "lang": "hy",
+            "url": "https://hy.wikipedia.org/wiki/%D5%88%D6%80%D5%B8%D5%B6%D5%B8%D5%B2%D5%A1%D5%AF%D5%A1%D5%B6_%D5%BC%D5%B8%D5%A2%D5%B8%D5%BF",
+            "autonym": "հայերեն",
+            "*": "Որոնողական ռոբոտ"
+          },
+          {
+            "lang": "it",
+            "url": "https://it.wikipedia.org/wiki/Crawler",
+            "autonym": "italiano",
+            "*": "Crawler"
+          },
+          {
+            "lang": "ja",
+            "url": "https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%A9",
+            "autonym": "日本語",
+            "*": "クローラ"
+          },
+          {
+            "lang": "ko",
+            "url": "https://ko.wikipedia.org/wiki/%EC%9B%B9_%ED%81%AC%EB%A1%A4%EB%9F%AC",
+            "autonym": "한국어",
+            "*": "웹 크롤러"
+          },
+          {
+            "lang": "lt",
+            "url": "https://lt.wikipedia.org/wiki/Interneto_robotas",
+            "autonym": "lietuvių",
+            "*": "Interneto robotas"
+          },
+          {
+            "lang": "mhr",
+            "url": "https://mhr.wikipedia.org/wiki/%D0%9A%D1%8B%D1%87%D0%B0%D0%BB%D1%88%D0%B5_%D1%80%D0%BE%D0%B1%D0%BE%D1%82",
+            "autonym": "олык марий",
+            "*": "Кычалше робот"
+          },
+          {
+            "lang": "ms",
+            "url": "https://ms.wikipedia.org/wiki/Perangkak_web",
+            "autonym": "Bahasa Melayu",
+            "*": "Perangkak web"
+          },
+          {
+            "lang": "nds-nl",
+            "url": "https://nds-nl.wikipedia.org/wiki/Webkroeper",
+            "autonym": "Nedersaksies",
+            "*": "Webkroeper"
+          },
+          {
+            "lang": "nl",
+            "url": "https://nl.wikipedia.org/wiki/Spider",
+            "autonym": "Nederlands",
+            "*": "Spider"
+          },
+          {
+            "lang": "nn",
+            "url": "https://nn.wikipedia.org/wiki/S%C3%B8kerobot",
+            "autonym": "norsk nynorsk",
+            "*": "Søkerobot"
+          },
+          {
+            "lang": "no",
+            "url": "https://no.wikipedia.org/wiki/S%C3%B8kerobot",
+            "autonym": "norsk",
+            "*": "Søkerobot"
+          },
+          {
+            "lang": "pl",
+            "url": "https://pl.wikipedia.org/wiki/Robot_internetowy",
+            "autonym": "polski",
+            "*": "Robot internetowy"
+          },
+          {
+            "lang": "pt",
+            "url": "https://pt.wikipedia.org/wiki/Rastreador_web",
+            "autonym": "português",
+            "*": "Rastreador web"
+          },
+          {
+            "lang": "ro",
+            "url": "https://ro.wikipedia.org/wiki/Robot_de_c%C4%83utare",
+            "autonym": "română",
+            "*": "Robot de căutare"
+          },
+          {
+            "lang": "ru",
+            "url": "https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%D0%BE%D0%B2%D1%8B%D0%B9_%D1%80%D0%BE%D0%B1%D0%BE%D1%82",
+            "autonym": "русский",
+            "*": "Поисковый робот"
+          },
+          {
+            "lang": "simple",
+            "url": "https://simple.wikipedia.org/wiki/Web_crawler",
+            "autonym": "Simple English",
+            "*": "Web crawler"
+          },
+          {
+            "lang": "sr",
+            "url": "https://sr.wikipedia.org/wiki/Veb-popisiva%C4%8D",
+            "autonym": "српски / srpski",
+            "*": "Veb-popisivač"
+          },
+          {
+            "lang": "sv",
+            "url": "https://sv.wikipedia.org/wiki/Spindel_(internet)",
+            "autonym": "svenska",
+            "*": "Spindel (internet)"
+          },
+          {
+            "lang": "ta",
+            "url": "https://ta.wikipedia.org/wiki/%E0%AE%B5%E0%AE%B2%E0%AF%88_%E0%AE%8A%E0%AE%B0%E0%AF%8D%E0%AE%A4%E0%AE%BF",
+            "autonym": "தமிழ்",
+            "*": "வலை ஊர்தி"
+          },
+          {
+            "lang": "th",
+            "url": "https://th.wikipedia.org/wiki/%E0%B9%80%E0%B8%A7%E0%B9%87%E0%B8%9A%E0%B8%84%E0%B8%A3%E0%B8%AD%E0%B8%A7%E0%B9%8C%E0%B9%80%E0%B8%A5%E0%B8%AD%E0%B8%A3%E0%B9%8C",
+            "autonym": "ไทย",
+            "*": "เว็บครอว์เลอร์"
+          },
+          {
+            "lang": "tr",
+            "url": "https://tr.wikipedia.org/wiki/Arama_robotu",
+            "autonym": "Türkçe",
+            "*": "Arama robotu"
+          },
+          {
+            "lang": "uk",
+            "url": "https://uk.wikipedia.org/wiki/%D0%9F%D0%BE%D1%88%D1%83%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D1%80%D0%BE%D0%B1%D0%BE%D1%82",
+            "autonym": "українська",
+            "*": "Пошуковий робот"
+          },
+          {
+            "lang": "zh",
+            "url": "https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E7%88%AC%E8%9F%B2",
+            "autonym": "中文",
+            "*": "網路爬蟲"
+          }
+        ]
+      }
+    }
+  }
+}
