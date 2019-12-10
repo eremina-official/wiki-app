@@ -47,26 +47,6 @@ describe('wiki app', () => {
     cy.get('.search-results__item:first-child')
       .should('have.id', '33139')
   })
-
-  it.only('shows titles in available languages', () => {
-    cy.get('.keyword-input')
-      .type('Web')
-      .type('{enter}')
-
-    cy.get('.search-results__item:first-child > .lang-container')
-      .should('not.exist')
-    cy.get('.search-results__item:first-child > .button-language').click()
-    cy.get('.search-results__item:first-child > .lang-container')
-      .should('exist')
-      .and('not.have.class', 'is-not-active')
-    cy.get('.search-results__item:first-child > .lang-container')
-      .children()
-      .should('have.length', 38)
-    cy.get('.search-results__item:first-child > .button-language').click()
-    cy.get('.search-results__item:first-child > .lang-container')
-      .should('exist')
-      .and('have.class', 'is-not-active')
-  })
 })
 
 
